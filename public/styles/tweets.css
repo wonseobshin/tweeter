@@ -1,0 +1,8 @@
+article.tweet {
+  margin: auto;
+  background-color: #eee;
+  border-style: solid;
+  border: 2px solid;
+  border-radius: 5px;
+  width: 400px ;
+}
