@@ -46,19 +46,24 @@ $(document).ready(function() {
     }
   ];
 
+  function escape(str) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+  }
 
   function createTweetElement(data){
     let str =
       `<section class="tweets-container">
         <article class="tweet">
           <header>
-            <img class="dp" src=${data.user.avatars.regular}>
-            <h3 class="username">${data.user.name}</h3>
-            <h5 class="userat">${data.user.handle}</h5>
+            <img class="dp" src=${escape(data.user.avatars.regular)}>
+            <h3 class="username">${escape(data.user.name)}</h3>
+            <h5 class="userat">${escape(data.user.handle)}</h5>
           </header>
-          <p>${data.content.text}</p>
+          <p>${escape(data.content.text)}</p>
           <hr>
-          <footer>${data.created_at}</footer>
+          <footer>${escape(data.created_at)}</footer>
         </article>
       </section>`;
     return str;
@@ -66,6 +71,7 @@ $(document).ready(function() {
 
   function renderTweets(tweets){
     $feed = $("#tweet-container");
+    $feed.empty();
 
     tweets.forEach(function(data){
       let $tweet = '';
@@ -76,18 +82,18 @@ $(document).ready(function() {
 
   function loadTweets(){
     $.getJSON(`/tweets`, (data) => {
+
       renderTweets(data);
     })
   };
-
 
   console.log('compose working!');
 
   let $tweetArticle = $("article.tweet");
 
   const $tweetForm = $('#tweet-form');
-  // const $tweetSubmit = $('#tweet-submit');
 
+  loadTweets();
 
   $tweetForm.on('submit', (event) => {
     event.preventDefault();
