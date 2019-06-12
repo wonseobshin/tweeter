@@ -1,18 +1,17 @@
 section.new-tweet {
   margin: auto;
   background-color: #eee;
-  border-style: solid;
-  border: 2px solid;
+  border: 2px solid lightslategrey;
   border-radius: 5px;
   width: 400px ;
 }
 
 hr { 
   display: block;
-  margin-left: 2em;
-  margin-right: 2em;
-  border-style: inset;
-  border-width: 2px;
+  width: 100%;
+  margin: 0;
+  border: 1px solid grey;
+  z-index: -1;
 }
 
 h2 {
