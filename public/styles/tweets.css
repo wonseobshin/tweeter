@@ -9,11 +9,11 @@
   opacity: 0.7;
 }
 
-article.tweet.full-opacity {
+.tweet.full-opacity {
   opacity: 1;
 }
 
-article.tweet p {
+.tweet p {
   margin: auto;
   height: 50%;
   padding-left: 5px;
@@ -21,14 +21,14 @@ article.tweet p {
   min-height: 50px;
 }
 
-article.tweet header {
+.tweet header {
   height: 60px;
   background-color: #eee;
   margin: auto;
   width: 50;
 }
 
-article.tweet header img {
+.tweet header img {
   float: left;
   height: 50px;
   margin-top: 5px;/*0.2em;*/
@@ -38,20 +38,20 @@ article.tweet header img {
   border-radius: 5px;
 }
 
-article.tweet header h3 {
+.tweet header h3 {
   margin: 0;
   padding-left: 5px;
   float:left;
 }
 
-article.tweet header h5 {
+.tweet header h5 {
   float: right;
   margin: 0;
   padding-right: 5px;
   padding-top: 5px;
 }
 
-article.tweet footer {
+.tweet footer {
   font-size: 70%;
   height: 50%;
   margin: auto;
