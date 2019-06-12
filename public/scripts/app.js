@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  const data = [
+  const database = [
     {
       "user": {
         "name": "Newton",
@@ -73,5 +73,19 @@ $(document).ready(function() {
     return str;
   };
 
-  renderTweets(data);
+  //renderTweets(database);
+
+
+  function loadTweets(){
+    $.getJSON(`/tweets`, (data) => {
+      // console.log('working here too');
+      // const $posts = $('.tweets-container');
+      // console.log(data);
+      // database.content.text = data;
+      renderTweets(data);
+    })
+  };
+
+  loadTweets();
+
 });

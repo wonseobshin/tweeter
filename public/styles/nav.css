@@ -19,10 +19,10 @@
     float: left;
 }
 
-#nav-bar .header {
+#nav-bar span.header {
     line-height: 2.5;
     font-size: 200%;
-    font-color: white;
+    color: white;
     padding-left: 10px;
     float: left;
 }
