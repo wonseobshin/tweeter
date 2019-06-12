@@ -6,6 +6,11 @@ article.tweet {
   border: 2px solid lightslategrey;
   border-radius: 5px;
   width: 400px ;
+  opacity: 0.7;
+}
+
+article.tweet.full-opacity {
+  opacity: 1;
 }
 
 article.tweet p {

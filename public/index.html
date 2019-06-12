@@ -31,6 +31,15 @@
     <!-- composer counter JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
+    <!-- composer counter JS -->
+    <script type="text/javascript" src="/scripts/tweet-hover.js"></script>
+
+    <!-- J Query -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
   </head>
 
   <body>
@@ -43,6 +52,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <hr>
@@ -52,7 +62,8 @@
           <em><span id=tweet-counter>140</span></em>
         </form>
       </section>
-      <section>
+
+      <section class="tweets-container">
         <article class="tweet">
           <header>
             <img class="dp" src=/images/default-dp.png>
@@ -64,6 +75,7 @@
           <footer>when posted</footer>
         </article>
       </section>
+
     </main>
   </body>
 </html>
