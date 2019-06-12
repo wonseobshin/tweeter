@@ -1,4 +1,4 @@
-article.tweet {
+.tweet {
   margin-top: 7px;
   margin-left: auto;
   margin-right: auto;
@@ -34,7 +34,7 @@ article.tweet header img {
   margin-top: 5px;/*0.2em;*/
   margin-bottom: 5px;
   margin-left: 5px;
-  border: 2px solid lightslategrey;
+  /* border: 2px solid lightslategrey; */
   border-radius: 5px;
 }
 
