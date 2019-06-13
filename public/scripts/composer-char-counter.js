@@ -10,6 +10,10 @@ $(document).ready(function() {
     let text = this.value;
 
     counter.innerHTML = textLength;
+    const $errors = $("#errors");
+
+    $errors.slideUp();
+    $errors.empty();
 
     if(counter.innerHTML < 0){
       counter.style.color = "red";

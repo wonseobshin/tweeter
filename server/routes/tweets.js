@@ -20,12 +20,10 @@ module.exports = function(DataHelpers) {
   tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
-      console.log('no text');
       return;
     }
     if (req.body.text.length > 140){
       res.status(400).json({ error: 'invalid request: tweet length greater than 140'});
-      console.log('140 cap reached')
       return;
     }
 

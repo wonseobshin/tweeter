@@ -31,8 +31,8 @@
     <!-- composer counter JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-    <!-- composer counter JS -->
-    <script type="text/javascript" src="/scripts/tweet-hover.js"></script>
+    <!-- navigation button JS -->
+    <script type="text/javascript" src="/scripts/navbar.js"></script>
 
     <!-- -->
     <!-- <script type="text/javascript" src="/scripts/compose-tweet.js"></script> -->
@@ -48,13 +48,13 @@
         <span class="header">Tweeter</span>
       </a>
       <ul>
-        <li><button id="composeButton">Compose</button></li>
+        <li><button id="compose-button">Compose</button></li>
       </ul>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section class="new-tweet" style="display: none">
         <h2>Compose Tweet</h2>
         <hr>
         <form id='tweet-form'>
@@ -62,8 +62,10 @@
           <input id='tweet-submit' type="submit" value="Tweet">
           <em><span id=tweet-counter>140</span></em>
         </form>
+        <span id='errors'></span>
       </section>
       <div id="tweet-container">
+        <article class='tweet'></article>
       </div>
     </main>
   </body>

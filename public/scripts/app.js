@@ -92,24 +92,28 @@ $(document).ready(function() {
   let $tweetArticle = $("article.tweet");
 
   const $tweetForm = $('#tweet-form');
+  const $errors = $("#errors");
 
   loadTweets();
 
   $tweetForm.on('submit', (event) => {
     event.preventDefault();
     const $tweetText = $('#tweet-textarea');
-    // console.log($tweetText.val().length);
+    $errors.text("");
 
     if($tweetText.val() !== '' && $tweetText.val().length <= 140){
-      // console.log('curretn tweetText ', $tweetText.val);
-
       $.post(`/tweets`, $tweetForm.serialize(), () => {
         loadTweets();
         $('#tweet-textarea').val('');
       });
-    } else {
-      alert('invalid tweet');
+    }
+    if ($tweetText.val() === ''){
+      $errors.text("Your tweet is empty");
+      $errors.slideDown();
+    }
+    if ($tweetText.val().length > 140){
+      $errors.text("Please limit your tweet to 140 characters");
+      $errors.slideDown();
     }
   });
-
 });

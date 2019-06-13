@@ -9,7 +9,7 @@
   opacity: 0.7;
 }
 
-.tweet.full-opacity {
+.tweet:hover {
   opacity: 1;
 }
 
@@ -41,7 +41,8 @@
 .tweet header h3 {
   margin: 0;
   padding-left: 5px;
-  float:left;
+  padding-top: 5px;
+  float: left;
 }
 
 .tweet header h5 {

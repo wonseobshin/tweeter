@@ -6,32 +6,14 @@ section.new-tweet {
   width: 400px ;
 }
 
-hr { 
-  display: block;
-  width: 100%;
-  margin: 0;
-  border: 1px solid grey;
-  z-index: -1;
-}
-
-h2 {
-  padding-left: 2em;
-}
-
-form {
-  padding-top:1em;
-  padding-left: 2em;
-  padding-right: 2em;
-  padding-bottom: 1em;
-}
-
-main textarea {
-  width: 325px;
-  padding-left: 5px;
-}
-
-span {
-  float: right;
-  padding-right: 15px;
+#errors {
+  margin: auto;
+  float: none;
+  padding-right: 0px;
   font-size: 75%;
+  background-color: yellow;
+  border: 2px solid lightslategrey;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
 }
