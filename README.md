@@ -36,5 +36,5 @@ mongodb: ^2.2.36
 
 ## Screenshots
 
-![Screenshots of tweet compose box](/docs/Capture.jpeg)
-![Window to show errors when submitting an invalid tweet](/docs/error.jpeg)
+![Screenshots of tweet compose box](https://github.com/wonseobshin/tweeter/blob/master/docs/Capture.JPG)
+![Window to show errors when submitting an invalid tweet](https://github.com/wonseobshin/tweeter/blob/master/docs/error.JPG)
