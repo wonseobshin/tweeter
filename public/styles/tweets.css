@@ -16,8 +16,7 @@
 .tweet p {
   margin: auto;
   height: 50%;
-  padding-left: 5px;
-  padding-top: 5px;
+  padding: 5px 5px 5px 5px;
   min-height: 50px;
 }
 
@@ -46,6 +45,7 @@
 }
 
 .tweet header h5 {
+  line-height:50px;
   float: right;
   margin: 0;
   padding-right: 5px;
@@ -56,5 +56,5 @@
   font-size: 70%;
   height: 50%;
   margin: auto;
-  padding-left: 5px;
+  padding: 5px 5px 5px 5px;
 }

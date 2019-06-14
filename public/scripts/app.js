@@ -1,59 +1,47 @@
 $(document).ready(function() {
-  const database = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": {
-          "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-          "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-          "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-        },
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": {
-          "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-          "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-          "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-        },
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    },
-    {
-      "user": {
-        "name": "Johann von Goethe",
-        "avatars": {
-          "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-          "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-          "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-        },
-        "handle": "@johann49"
-      },
-      "content": {
-        "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-      },
-      "created_at": 1461113796368
-    }
-  ];
-
+  // function to disallow problematic text inputs such as html syntax
   function escape(str) {
-  const div = document.createElement('div');
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
+    const div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   }
 
+  //function to convert timestamp to "'time' from value" adapted from https://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time-eg-2-seconds-ago-one-week-ago-etc-best
+  function timeDifference(current, previous) {
+    var msPerMinute = 60 * 1000;
+    var msPerHour = msPerMinute * 60;
+    var msPerDay = msPerHour * 24;
+    var msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
+
+    var elapsed = current - previous;
+
+    if (elapsed < msPerMinute) {
+         return Math.round(elapsed/1000) + ' seconds ago';
+    }
+    else if (elapsed < msPerHour) {
+         return Math.round(elapsed/msPerMinute) + ' minutes ago';
+    }
+    else if (elapsed < msPerDay ) {
+         return Math.round(elapsed/msPerHour ) + ' hours ago';
+    }
+    else if (elapsed < msPerMonth) {
+        return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';
+    }
+    else if (elapsed < msPerYear) {
+        return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';
+    }
+    else {
+        return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';
+    }
+  };
+
+  //returns a string which hold DOM value of a tweet
   function createTweetElement(data){
-    let str =
+    var timeFrom = timeDifference(Date.now(), data.created_at);
+    console.log("created timeFrom= ",timeFrom);
+
+    const str =
       `<section class="tweets-container">
         <article class="tweet">
           <header>
@@ -63,12 +51,13 @@ $(document).ready(function() {
           </header>
           <p>${escape(data.content.text)}</p>
           <hr>
-          <footer>${escape(data.created_at)}</footer>
+          <footer>${escape(timeFrom)}</footer>
         </article>
       </section>`;
     return str;
   };
 
+  //attach all tweets in the database to the feed
   function renderTweets(tweets){
     $feed = $("#tweet-container");
     $feed.empty();
@@ -80,6 +69,7 @@ $(document).ready(function() {
     });
   }
 
+  // attach tweets to render
   function loadTweets(){
     $.getJSON(`/tweets`, (data) => {
 
@@ -87,15 +77,14 @@ $(document).ready(function() {
     })
   };
 
-  console.log('compose working!');
-
-  let $tweetArticle = $("article.tweet");
-
+  const $tweetArticle = $("article.tweet");
   const $tweetForm = $('#tweet-form');
   const $errors = $("#errors");
 
+  //this call loads previously made tweets
   loadTweets();
 
+  // request on tweet submission
   $tweetForm.on('submit', (event) => {
     event.preventDefault();
     const $tweetText = $('#tweet-textarea');
@@ -107,6 +96,8 @@ $(document).ready(function() {
         $('#tweet-textarea').val('');
       });
     }
+
+    //show errors to users if there are any
     if ($tweetText.val() === ''){
       $errors.text("Your tweet is empty");
       $errors.slideDown();

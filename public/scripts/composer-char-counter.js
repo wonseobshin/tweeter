@@ -8,12 +8,13 @@ $(document).ready(function() {
     let textLengthMax = 140;
     let textLength = textLengthMax - this.value.length;
     let text = this.value;
-
-    counter.innerHTML = textLength;
     const $errors = $("#errors");
 
+    //slide up the erros when the text box is being edited
     $errors.slideUp();
     $errors.empty();
+
+    counter.innerHTML = textLength;
 
     if(counter.innerHTML < 0){
       counter.style.color = "red";

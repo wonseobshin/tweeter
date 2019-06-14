@@ -10,7 +10,8 @@
     widh: fill-available;
     background-color: #00a087;
     font-color: #e8fdff;
-    min-width: 270px;
+    min-width: 400px;
+    Z-index: 3;
 }
 
 ul {
